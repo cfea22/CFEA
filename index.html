@@ -6,81 +6,30 @@
   <title>The Career Foundation Educational Academy</title>
   <style>
     body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
-    header { 
-      background-color: #003366; 
-      color: white; 
-      padding: 20px 0; 
-      text-align: center; 
-      position: relative;
-    }
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-    .logo {
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-    }
-    .header-text {
-      text-align: left;
-    }
-    header h1 { 
-      margin: 0; 
-      font-size: 2.2em; 
-      line-height: 1.2;
-    }
-    header p { 
-      margin: 5px 0 0; 
-      font-size: 1em; 
-    }
-    /* Rest of your CSS remains the same */
-    nav { background: #0055a5; text-align: center; padding: 10px 0; position: sticky; top: 0; z-index: 100; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
-    nav a:hover { color: #ffcc00; }
+    header { background-color: #003366; color: white; padding: 20px 0; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5em; }
+    header p { margin: 5px 0 0; font-size: 1.2em; }
+    nav { background: #0055a5; text-align: center; padding: 10px 0; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
     section { max-width: 1000px; margin: auto; padding: 40px 20px; }
-    h2 { color: #003366; border-bottom: 2px solid #0055a5; padding-bottom: 10px; }
+    h2 { color: #003366; }
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .feature-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    footer { background: #003366; color: white; text-align: center; padding: 15px 0; margin-top: 30px; }
-    .qr-container { text-align: center; margin: 30px 0; }
-    .qr-code { width: 200px; height: 200px; margin: 0 auto; border: 1px solid #ddd; padding: 10px; background: white; }
-    .verification-section { background: #f0f8ff; padding: 30px; border-radius: 10px; margin-top: 30px; }
-    .courses-list { columns: 2; column-gap: 40px; }
-    @media (max-width: 768px) {
-      .header-content { flex-direction: column; text-align: center; }
-      .header-text { text-align: center; }
-      .courses-list { columns: 1; }
-      nav a { display: block; margin: 10px 0; }
-    }
+    .feature-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    footer { background: #003366; color: white; text-align: center; padding: 15px 0; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-content">
-    <!-- Update this path to your logo's location in your GitHub repo -->
-    <img src="images/1747755563417.png" alt="CFEA Logo" class="logo">
-    <div class="header-text">
-      <h1>The Career Foundation Educational Academy</h1>
-      <p>Napet Palli, Imphal East, Manipur – 795010</p>
-      <p>Reg. No: 425 of 2022 under I.T. Act 1882 (Registration Act 1908)</p>
-    </div>
-  </div>
+  <h1>The Career Foundation Educational Academy</h1>
+  <p>Napet Palli, Imphal East, Manipur – 795010</p>
+  <p>Reg. No: 425 of 2022 under I.T. Act 1882 (Registration Act 1908)</p>
 </header>
 
-<!-- Rest of your HTML remains the same -->
 <nav>
   <a href="#about">About</a>
   <a href="#courses">Courses</a>
   <a href="#features">Features</a>
-  <a href="#verification">Verification</a>
   <a href="#announcements">Announcements</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -92,7 +41,7 @@
 
 <section id="courses">
   <h2>Courses Offered</h2>
-  <ul class="courses-list">
+  <ul>
     <li>Basic Computer Course</li>
     <li>Spoken English</li>
     <li>Digital Literacy Program</li>
@@ -119,18 +68,6 @@
       <h3>Online Certificate Verification</h3>
       <p>QR-based and ID-based verification available 24/7 via our portal.</p>
     </div>
-  </div>
-</section>
-
-<section id="verification" class="verification-section">
-  <h2>Certificate Verification</h2>
-  <p>Scan this QR code with your smartphone camera to access our certificate verification portal:</p>
-  
-  <div class="qr-container">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://cfea22.github.io/Certificate-Verification-Portal/" 
-         alt="Certificate Verification QR Code" 
-         class="qr-code">
-    <p>or visit: <a href="https://cfea22.github.io/Certificate-Verification-Portal/" target="_blank">https://cfea22.github.io/Certificate-Verification-Portal/</a></p>
   </div>
 </section>
 
