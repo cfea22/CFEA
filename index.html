@@ -4,91 +4,166 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Career Foundation Educational Academy</title>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
-    header { background-color: #003366; color: white; padding: 20px 0; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { margin: 5px 0 0; font-size: 1.2em; }
-    nav { background: #0055a5; text-align: center; padding: 10px 0; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    section { max-width: 1000px; margin: auto; padding: 40px 20px; }
-    h2 { color: #003366; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .feature-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    footer { background: #003366; color: white; text-align: center; padding: 15px 0; }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
 
 <header>
-  <h1>The Career Foundation Educational Academy</h1>
-  <p>Napet Palli, Imphal East, Manipur – 795010</p>
-  <p>Reg. No: 425 of 2022 under I.T. Act 1882 (Registration Act 1908)</p>
+  <div class="header-content">
+    <h1>The Career Foundation Educational Academy</h1>
+    <p>Napet Palli, Imphal East, Manipur – 795010</p>
+    <p>Reg. No: 425 of 2022 under I.T. Act 1882 (Registration Act 1908)</p>
+  </div>
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#courses">Courses</a>
   <a href="#features">Features</a>
+  <a href="#verify">Verify</a>
   <a href="#announcements">Announcements</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>About Us</h2>
-  <p>The Career Foundation Educational Academy (CFEA) is committed to empowering students through practical education and skill development. We collaborate with institutions like the Khwai Ihul Foundation to expand literacy and digital education across Manipur.</p>
+  <div class="about-content">
+    <div class="about-text">
+      <p>The Career Foundation Educational Academy (CFEA) is committed to empowering students through practical education and skill development. We collaborate with institutions like the Khwai Ihul Foundation to expand literacy and digital education across Manipur.</p>
+      <p>Our mission is to provide quality education that bridges the gap between academic learning and practical skills needed in today's competitive world.</p>
+    </div>
+    <div class="about-image">
+      <img src="images/about-us.jpg" alt="Students learning at CFEA" class="about-img">
+    </div>
+  </div>
 </section>
 
 <section id="courses">
   <h2>Courses Offered</h2>
-  <ul>
-    <li>Basic Computer Course</li>
-    <li>Spoken English</li>
-    <li>Digital Literacy Program</li>
-    <li>Certificate Verification & ID Services</li>
-  </ul>
+  <div class="course-gallery">
+    <div class="course-card">
+      <img src="images/computer-course.jpg" alt="Basic Computer Course">
+      <div class="course-info">
+        <h3>Basic Computer Course</h3>
+        <p>Learn essential computer skills including MS Office, internet usage, and basic troubleshooting.</p>
+        <button class="btn">Learn More</button>
+      </div>
+    </div>
+    <div class="course-card">
+      <img src="images/english-course.jpg" alt="Spoken English">
+      <div class="course-info">
+        <h3>Spoken English</h3>
+        <p>Improve your communication skills with our comprehensive spoken English program.</p>
+        <button class="btn">Learn More</button>
+      </div>
+    </div>
+    <div class="course-card">
+      <img src="images/digital-literacy.jpg" alt="Digital Literacy Program">
+      <div class="course-info">
+        <h3>Digital Literacy Program</h3>
+        <p>Master digital tools and platforms essential for modern education and employment.</p>
+        <button class="btn">Learn More</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="features">
   <h2>Key Features</h2>
   <div class="features">
     <div class="feature-card">
+      <i class="fas fa-certificate"></i>
       <h3>Certified Programs</h3>
       <p>Recognized training and verified certifications to boost student credentials.</p>
     </div>
     <div class="feature-card">
+      <i class="fas fa-hands-helping"></i>
       <h3>Community Outreach</h3>
       <p>Collaborations with local foundations to promote education for all.</p>
     </div>
     <div class="feature-card">
+      <i class="fas fa-rupee-sign"></i>
       <h3>Affordable Fees</h3>
       <p>High-quality training with minimal fees to ensure accessibility for all.</p>
     </div>
     <div class="feature-card">
-      <h3>Online Certificate Verification</h3>
+      <i class="fas fa-qrcode"></i>
+      <h3>Online Verification</h3>
       <p>QR-based and ID-based verification available 24/7 via our portal.</p>
+    </div>
+  </div>
+</section>
+
+<section id="verify">
+  <h2>Certificate Verification</h2>
+  <div class="verification-container">
+    <div class="verification-card">
+      <div class="verification-icon">
+        <i class="fas fa-certificate"></i>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring-delay"></div>
+      </div>
+      <h3>Verify Your Certificate</h3>
+      <p>Check the authenticity of your CFEA certificates using our online verification system</p>
+      <a href="https://cfea22.github.io/Verify-Your-Certificate/" class="verify-btn" target="_blank">
+        Click Here to Verify
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
 
 <section id="announcements">
   <h2>Announcements</h2>
-  <ul>
-    <li>🎓 Admissions open for Basic Computer Course - June Batch</li>
-    <li>📢 Online certificate verification portal now live</li>
-  </ul>
+  <div class="announcement-card">
+    <h3><i class="fas fa-graduation-cap"></i> Admissions Open</h3>
+    <p>Admissions open for Basic Computer Course - June Batch. Limited seats available!</p>
+    <p class="date">Posted: May 15, 2025</p>
+  </div>
+  <div class="announcement-card">
+    <h3><i class="fas fa-certificate"></i> Certificate Verification</h3>
+    <p>Online certificate verification portal now live. Verify your certificates anytime, anywhere.</p>
+    <p class="date">Posted: April 28, 2025</p>
+  </div>
 </section>
 
 <section id="contact">
   <h2>Contact Us</h2>
-  <p>Email: <a href="mailto:careereduacademy@gmail.com">careereduacademy@gmail.com</a></p>
-  <p>Phone: +91-9876543210</p>
-  <p>Address: Napet Palli, Imphal East, Manipur – 795010</p>
+  <div class="contact-info">
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h3>Email</h3>
+      <p><a href="mailto:careereduacademy@gmail.com">careereduacademy@gmail.com</a></p>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h3>Phone</h3>
+      <p>+91-9876543210</p>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Address</h3>
+      <p>Napet Palli, Imphal East, Manipur – 795010</p>
+    </div>
+  </div>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178653926198!2d93.9454143150089!3d25.12372298389531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA3JzI1LjQiTiA5M8KwNTYnNDkuNiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
 </section>
 
 <footer>
-  &copy; 2025 The Career Foundation Educational Academy | All rights reserved.
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p>&copy; <span id="current-year">2025</span> The Career Foundation Educational Academy | All rights reserved.</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
