@@ -1,5 +1,7 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
+  // Set current year in footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  
   // Smooth scrolling for navigation links
   document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -9,54 +11,72 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetElement = document.querySelector(targetId);
       
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: targetElement.offsetTop - 70,
         behavior: 'smooth'
       });
       
-      // Update active link
-      document.querySelectorAll('nav a').forEach(link => {
-        link.classList.remove('active');
-      });
-      this.classList.add('active');
+      // Close mobile menu if open
+      const navbar = document.querySelector('.nav-container');
+      navbar.classList.remove('active');
     });
   });
   
-  // Intersection Observer for scroll animations
-  const observerOptions = {
-    threshold: 0.1
-  };
+  // Mobile menu toggle
+  const mobileMenuToggle = document.createElement('div');
+  mobileMenuToggle.className = 'mobile-menu-toggle';
+  mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+  document.querySelector('nav').prepend(mobileMenuToggle);
   
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+  mobileMenuToggle.addEventListener('click', function() {
+    document.querySelector('.nav-container').classList.toggle('active');
+  });
+  
+  // Add animation to elements when they come into view
+  const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.course-card, .feature-card, .announcement-card');
+    
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (elementPosition < windowHeight - 100) {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
       }
     });
-  }, observerOptions);
+  };
   
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
+  // Set initial state for animation
+  const animatedElements = document.querySelectorAll('.course-card, .feature-card, .announcement-card');
+  animatedElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   });
   
-  // Course gallery hover effect
-  const courseCards = document.querySelectorAll('.course-card');
-  courseCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.querySelector('img').style.transform = 'scale(1.1)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-      this.querySelector('img').style.transform = 'scale(1)';
-    });
-  });
+  // Run animation check on load and scroll
+  window.addEventListener('load', animateOnScroll);
+  window.addEventListener('scroll', animateOnScroll);
   
-  // Current year for footer
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-  
-  // Fix for verification link (add https if missing)
-  const verifyLink = document.querySelector('.verify-btn');
-  if (verifyLink && verifyLink.getAttribute('href').startsWith('://')) {
-    verifyLink.setAttribute('href', 'https' + verifyLink.getAttribute('href'));
+  // Form submission handling
+  const contactForm = document.querySelector('.contact-form form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const formData = new FormData(this);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+      
+      // Here you would typically send the data to a server
+      console.log('Form submitted:', data);
+      
+      // Show success message
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
   }
 });
