@@ -159,6 +159,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 40px;
+  padding: 0 30px; /* Add left and right spacing */
 }
 
 .about-text {
@@ -507,6 +508,7 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
   margin-bottom: 40px;
+  padding: 0 30px; /* Add horizontal space */
 }
 
 .footer-logo {
@@ -586,10 +588,12 @@ footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .about-content {
     flex-direction: column;
+    padding: 0 20px; /* Responsive padding */
   }
+}
   
   .contact-container {
     flex-direction: column;
