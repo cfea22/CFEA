@@ -80,3 +80,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// Chat Widget
+document.addEventListener('DOMContentLoaded', function() {
+  const chatButton = document.getElementById('chatButton');
+  const chatBox = document.getElementById('chatBox');
+  const closeChat = document.getElementById('closeChat');
+  const chatMessages = document.getElementById('chatMessages');
+  const userMessageInput = document.getElementById('userMessage');
+  const sendMessageButton = document.getElementById('sendMessage');
+  const chatForm = document.getElementById('chatForm');
+  const formMessage = document.getElementById('formMessage');
+
+  // Toggle chat box
+  chatButton.addEventListener('click', function() {
+    chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  closeChat.addEventListener('click', function() {
+    chatBox.style.display = 'none';
+  });
+
+  // Send message
+  function sendMessage() {
+    const message = userMessageInput.value.trim();
+    if (message) {
+      addMessage(message, 'user-message');
+      userMessageInput.value = '';
+      
+      // Save message to form and submit
+      formMessage.value = message;
+      chatForm.submit();
+      
+      // Show confirmation
+      setTimeout(() => {
+        addMessage("Thank you! Your message has been sent. We'll respond soon.", 'bot-message');
+      }, 1000);
+    }
+  }
+
+  // Send on button click or Enter key
+  sendMessageButton.addEventListener('click', sendMessage);
+  userMessageInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  // Add message to chat UI
+  function addMessage(text, className) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chat-message', className);
+    messageDiv.innerHTML = `<p>${text}</p>`;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+});
