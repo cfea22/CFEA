@@ -39,7 +39,7 @@ a {
 }
 
 /* =========================
-   HEADER & NAV
+   HEADER & LOGO
 ========================== */
 .header-content {
   display: flex;
@@ -50,9 +50,18 @@ a {
   display: flex;
   align-items: center;
 }
+.logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
+}
 .header-text {
   padding-left: 15px;
 }
+
+/* =========================
+   NAVIGATION
+========================== */
 .nav-container {
   display: flex;
   justify-content: space-around;
