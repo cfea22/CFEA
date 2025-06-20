@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  (function() {
+    // Consent state object (by default, no consent is granted)
+    const consentState = {
+      adConsent: false,  // Consent for ads (Google Ads)
+      analyticsConsent: false,  // Consent for Google Analytics
+    };
+
+    // Function to update consent state based on user interaction
+    function updateConsent(consent) {
+      consentState.adConsent = consent.adConsent;
+      consentState.analyticsConsent = consent.analyticsConsent;
+
+      // Update Google consent mode with the current consent state
+      gtag('consent', 'update', {
+        'ad_storage': consentState.adConsent ? 'granted' : 'denied',
+        'analytics_storage': consentState.analyticsConsent ? 'granted' : 'denied'
+      });
+    }
+
+    // Google Analytics Setup (Initial config without data collection)
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    
+    // Replace this with your actual Google Analytics Measurement ID
+    gtag('config', 'G-6V2DHE4VEW', { 'anonymize_ip': true });
+
+    // Custom logic to listen to the user's consent actions
+    // Example of how consent state changes when the user clicks "Accept" or "Reject"
+    document.getElementById('cookie-consent-accept').addEventListener('click', function() {
+      updateConsent({ adConsent: true, analyticsConsent: true });  // Grant consent for ads & analytics
+      document.getElementById('cookie-consent-popup').style.display = 'none';  // Close the consent pop-up
+    });
+
+    document.getElementById('cookie-consent-reject').addEventListener('click', function() {
+      updateConsent({ adConsent: false, analyticsConsent: false });  // Reject both ads & analytics cookies
+      document.getElementById('cookie-consent-popup').style.display = 'none';  // Close the consent pop-up
+    });
+  })();
+</script>
  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6V2DHE4VEW"></script>
 <script>
@@ -22,6 +63,12 @@
 </head>
 <meta name="google-site-verification" content="d6gqA6mxfu57padP6G2dIvaQ-k9UgILj8yzD0YpKkLE" />
   <body>
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent-popup" style="position: fixed; bottom: 10px; left: 0; width: 100%; background-color: #333; color: #fff; padding: 15px; text-align: center;">
+  <p>We use cookies to improve your experience on our website. By accepting, you agree to our use of cookies for analytics and ads. <a href="/privacy-policy" style="color: #fff; text-decoration: underline;">Learn more</a></p>
+  <button id="cookie-consent-accept" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">Accept</button>
+  <button id="cookie-consent-reject" style="background-color: #f44336; color: white; padding: 10px 20px; border: none; cursor: pointer;">Reject</button>
+</div>
 
 <header>
   <div class="header-content">
