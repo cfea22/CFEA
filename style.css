@@ -1,5 +1,17 @@
 /* ===== Global Variables & Reset ===== */
 :root {
+  --header-height: 80px;
+  --nav-height: 60px;
+}
+
+header {
+  height: var(--header-height);
+}
+
+body {
+  padding-top: calc(var(--header-height) + var(--nav-height));
+}
+:root {
   /* Colors */
   --primary-color: #4a6bff;
   --primary-dark: #3a56d4;
@@ -132,7 +144,33 @@ header {
   margin-bottom: 0.2rem;
 }
 
-/* ===== Navigation ===== */
+/* Fix for content hidden behind fixed header */
+body {
+  padding-top: 140px; /* Adjust based on your header height */
+}
+
+/* Ensure header doesn't cover content */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Navigation styling fix */
+nav {
+  position: sticky;
+  top: 80px; /* Header height */
+  z-index: 999;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Main content spacing */
+main {
+  position: relative;
+  z-index: 1;
+}
 nav {
   background: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -163,7 +201,15 @@ nav {
   color: var(--primary-color);
   background: rgba(74, 107, 255, 0.1);
 }
-
+@media (max-width: 768px) {
+  :root {
+    --header-height: 120px; /* Taller on mobile */
+  }
+  
+  nav {
+    top: var(--header-height);
+  }
+}
 /* ===== Main Content ===== */
 main {
   margin-top: 140px; /* Adjust based on header height */
