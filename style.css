@@ -14,14 +14,14 @@
   --success-color: #28a745;
   --warning-color: #ffc107;
   
-  /* Typography - UPDATED with clearer purpose comments */
+  /* Typography */
   --font-primary: 'Poppins', sans-serif;
-  --font-xs: 0.875rem;   /* 14px - for small secondary text */
-  --font-sm: 1rem;       /* 16px - base body text size */
-  --font-md: 1.25rem;    /* 20px - subheaders */
-  --font-lg: 1.5rem;     /* 24px - section headers */
-  --font-xl: 2rem;       /* 32px - main headers */
-  --font-xxl: 2.5rem;    /* 40px - hero text */
+  --font-xs: 0.875rem;   /* 14px */
+  --font-sm: 1rem;       /* 16px */
+  --font-md: 1.25rem;    /* 20px */
+  --font-lg: 1.5rem;     /* 24px */
+  --font-xl: 2rem;       /* 32px */
+  --font-xxl: 2.5rem;    /* 40px */
   
   /* Spacing & Layout */
   --content-width: min(1200px, 90%);
@@ -49,7 +49,6 @@ html {
 
 body {
   font-family: var(--font-primary);
-  font-size: var(--font-sm); /* NEW: Base size set */
   line-height: 1.6;
   color: #333;
   background-color: #fff;
@@ -57,14 +56,32 @@ body {
   padding-top: calc(var(--header-height) + var(--nav-height));
 }
 
-/* NEW: Consistent heading styles */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.3;
-  font-weight: 600;
-  color: var(--dark-color);
+/* ===== Utility Classes ===== */
+.container {
+  width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* ===== Header Styles - UPDATED ===== */
+.section {
+  padding: var(--section-spacing) 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  text-align: center;
+  font-size: var(--font-sm);
+}
+
+/* ===== Header Styles ===== */
 header {
   background: linear-gradient(135deg, #4a6bff, #6a5acd);
   color: white;
@@ -88,7 +105,6 @@ header {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  flex-wrap: wrap; /* NEW: Better mobile handling */
 }
 
 .logo {
@@ -100,27 +116,36 @@ header {
 }
 
 .header-text h1 {
-  font-size: var(--font-xl); /* UPDATED: from lg to xl */
+  font-size: var(--font-lg);
   margin-bottom: 0.5rem;
   line-height: 1.3;
-  font-weight: 600; /* NEW: Better hierarchy */
-  color: white; /* NEW: Ensure contrast */
+  color: white;
 }
 
 .header-text p {
-  font-size: var(--font-sm); /* UPDATED: from xs to sm */
+  font-size: var(--font-xs);
   opacity: 0.9;
   margin-bottom: 0.2rem;
-  color: white; /* NEW: Ensure contrast */
+  color: white;
 }
 
-/* ===== Responsive Adjustments - UPDATED ===== */
-@media (max-width: 992px) {
-  :root {
-    --font-lg: 1.25rem;
-    --font-xl: 1.75rem;
-  }
+/* ===== Image Fixes ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+.about-img, 
+.course-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 992px) {
   .about-content {
     flex-direction: column;
   }
@@ -138,63 +163,7 @@ header {
 
 @media (max-width: 768px) {
   :root {
-    --section-spacing: 3rem;
-    --font-md: 1.125rem;
-    --font-lg: 1.25rem;
-    --font-xl: 1.5rem;
     --header-height: 120px;
-  }
-
-  /* NEW: Header text adjustments */
-  .header-text h1 {
-    font-size: var(--font-lg);
-  }
-  .header-text p {
-    font-size: var(--font-xs);
-  }
-
-  .nav-container {
-    gap: 0.5rem;
-    padding: 0.5rem 0;
-  }
-
-  .stats-container {
-    grid-template-columns: 1fr;
-  }
-
-  .section-title {
-    margin-bottom: 2rem;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-section h3::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .social-links {
-    justify-content: center;
-  }
-
-  .cookie-buttons {
-    flex-direction: column;
-  }
-
-  .chat-box {
-    width: 300px;
-  }
-}
-
-@media (max-width: 576px) {
-  :root {
-    --section-spacing: 2rem;
-    --font-sm: 0.875rem;
-    --font-md: 1rem;
-    --font-lg: 1.125rem;
   }
 
   .header-text h1 {
@@ -204,14 +173,10 @@ header {
   .header-text p {
     font-size: 0.75rem;
   }
+}
 
-  .nav-container a {
-    padding: 0.5rem;
-    font-size: var(--font-xs);
-  }
-
-  .chat-box {
-    width: 280px;
-    right: -20px;
+@media (max-width: 576px) {
+  .header-text h1 {
+    font-size: var(--font-sm);
   }
 }
