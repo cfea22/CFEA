@@ -1,225 +1,259 @@
-/* =========================
-   GENERAL STYLES
-========================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
+/* Global Styles */
 body {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
   line-height: 1.6;
   color: #333;
-  margin: 0;
-  padding: 0;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}
-h1, h2, h3 {
-  font-weight: 600;
-}
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; color: inherit; }
+h2 { margin-top: 0.5em; }
+
+/* Buttons */
 .btn {
-  background-color: #3FA9F5;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 5px;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: background 0.3s;
 }
-.btn:hover {
-  background-color: #2789C3;
+.btn:hover { background-color: #45a049; }
+.btn.outline {
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+}
+.btn.outline:hover {
+  background: #4CAF50;
+  color: white;
 }
 
-/* =========================
-   HEADER & LOGO
-========================== */
+/* Header & Nav */
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding: 1em;
 }
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-.logo {
-  max-width: 120px;
-  height: auto;
-  display: block;
-}
-.header-text {
-  padding-left: 15px;
-}
-
-/* =========================
-   NAVIGATION
-========================== */
+.logo { max-height: 60px; }
 .nav-container {
   display: flex;
-  justify-content: space-around;
-  background-color: #3FA9F5;
+  justify-content: center;
+  background: #f4f4f4;
+  padding: 0.75em;
 }
 .nav-container a {
-  color: #fff;
-  padding: 15px;
-}
-.nav-container a:hover {
-  background-color: #2789C3;
+  margin: 0 1em;
+  font-weight: 500;
+  color: #333;
 }
 
-/* =========================
-   SECTIONS
-========================== */
+/* Sections */
 section {
-  padding: 60px 15px;
+  padding: 2em 1em;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-/* =========================
-   ABOUT
-========================== */
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 1em;
 }
-.about-text,
-.about-image {
-  flex: 1 1 45%;
-  margin: 10px;
+.about-text { flex: 1; min-width: 250px; }
+.about-image img {
+  max-width: 100%;
+  border-radius: 8px;
 }
+
+/* Stats */
 .stats {
   display: flex;
-  justify-content: space-around;
+  gap: 2em;
+  margin-top: 1em;
 }
 .stat-item {
   text-align: center;
 }
 .stat-number {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2em;
+  font-weight: 700;
+  color: #4CAF50;
 }
 
-/* =========================
-   COURSES
-========================== */
+/* Course Gallery */
 .course-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 1em;
 }
 .course-card {
-  flex: 1 1 300px;
-  margin: 15px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
   overflow: hidden;
 }
+.course-card img {
+  width: 100%;
+  height: auto;
+}
 .course-info {
-  padding: 15px;
+  padding: 1em;
+}
+.course-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
 }
 
-/* =========================
-   FEATURES
-========================== */
+/* Features */
 .features {
   display: flex;
   flex-wrap: wrap;
+  gap: 1em;
   justify-content: space-around;
 }
 .feature-card {
-  flex: 1 1 200px;
+  flex: 1;
+  min-width: 200px;
+  background: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.feature-icon {
+  font-size: 2em;
+  color: #4CAF50;
+  margin-bottom: 0.5em;
 }
 
-/* =========================
-   VERIFICATION
-========================== */
-.verification-container {
-  display: flex;
-  justify-content: center;
-}
-
-/* =========================
-   ANNOUNCEMENTS
-========================== */
+/* Announcements */
 .announcements-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 1em;
 }
 .announcement-card {
-  flex: 1 1 250px;
-  padding: 15px;
+  flex: 1;
+  min-width: 250px;
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.announcement-badge {
+  font-size: 1.5em;
+  color: #4CAF50;
 }
 
-/* =========================
-   CONTACT
-========================== */
+/* Contact */
 .contact-container {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  gap: 2em;
+}
+.contact-info, .contact-form {
+  flex: 1;
+  min-width: 250px;
 }
 .contact-card {
-  flex: 1 1 200px;
-  text-align: center;
-  padding: 15px;
+  margin-bottom: 1em;
 }
-.contact-form {
-  flex: 1 1 300px;
+.contact-icon {
+  color: #4CAF50;
+  font-size: 1.2em;
+  margin-right: 0.5em;
 }
-.form-group {
-  margin: 10px 0;
+.contact-form form input, .contact-form form textarea {
+  width: 100%;
+  padding: 0.75em;
+  margin-bottom: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-.map-container {
-  padding: 30px 15px;
+.map-container iframe {
+  border-radius: 8px;
 }
 
-/* =========================
-   FOOTER
-========================== */
+/* Footer */
 .footer-content {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  padding: 30px 20px;
+  gap: 2em;
+  padding: 2em 1em;
+  background: #222;
+  color: #fff;
 }
-.footer-section {
-  flex: 1 1 250px;
-  margin: 10px;
+.footer-section { flex: 1; min-width: 200px; }
+.footer-section h3 { margin-top: 0; }
+.footer-section ul { list-style: none; padding: 0; }
+.footer-section ul li {
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
 }
 .footer-bottom {
   text-align: center;
-  padding: 15px;
+  padding: 1em;
+  background: #111;
 }
 
-/* =========================
-   CHAT WIDGET
-========================== */
+/* Chat Widget */
 .chat-container {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
 }
 .chat-button {
-  font-size: 1.5rem;
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .chat-box {
-  position: absolute;
-  bottom: 60px;
-  right: 0;
+  display: none;
+  background: white;
   width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.chat-header {
+  background: #4CAF50;
+  color: white;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-messages {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.5em;
+}
+.chat-input {
+  display: flex;
+}
+.chat-input input {
+  flex: 1;
+  padding: 0.5em;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+.chat-input button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0 1em;
+}
+
+/* Cookie Banner */
+#cookie-consent-popup p, #cookie-consent-popup a, #cookie-consent-popup button {
+  font-size: 0.9em;
 }
