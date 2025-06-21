@@ -1,136 +1,136 @@
-// ===== STICKY NAVIGATION HIGHLIGHT =====
-document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
-  
-  window.addEventListener('scroll', function() {
-    let current = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      
-      if (pageYOffset >= (sectionTop - 100)) {
-        current = section.getAttribute('id');
-      }
-    });
-    
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
-        link.classList.add('active');
-      }
-    });
-  });
-});
-// ===== COOKIE CONSENT =====
-document.addEventListener('DOMContentLoaded', () => {
-  // Set current year
-  document.getElementById('current-year').textContent = new Date().getFullYear();
+// ===== Cookie Consent =====
+const cookiePopup = document.getElementById('cookie-consent-popup');
+const cookieAccept = document.getElementById('cookie-consent-accept');
+const cookieReject = document.getElementById('cookie-consent-reject');
 
-  // Cookie elements
-  const cookiePopup = document.getElementById('cookie-consent-popup');
-  const acceptBtn = document.getElementById('cookie-consent-accept');
-  const rejectBtn = document.getElementById('cookie-consent-reject');
-
-  // Check existing consent
-  const getCookie = (name) => {
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-      const [cookieName, cookieValue] = cookie.trim().split('=');
-      if (cookieName === name) return cookieValue;
-    }
-    return null;
-  };
-
-  // Show popup if no consent
-  if (!getCookie('cookie_consent')) {
+// Check if user has already made a choice
+if (!localStorage.getItem('cookieConsent')) {
+  setTimeout(() => {
     cookiePopup.style.display = 'block';
-  }
+  }, 2000);
+}
 
-  // Handle consent
-  const setConsent = (value) => {
-    const date = new Date();
-    date.setFullYear(date.getFullYear() + 1);
-    document.cookie = `cookie_consent=${value}; expires=${date.toUTCString()}; path=/`;
-    cookiePopup.style.display = 'none';
+// Handle accept button
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'accepted');
+  cookiePopup.style.display = 'none';
+  // Enable analytics cookies here if needed
+});
+
+// Handle reject button
+cookieReject.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'rejected');
+  cookiePopup.style.display = 'none';
+});
+
+// ===== Chat Widget =====
+const chatButton = document.getElementById('chatButton');
+const chatBox = document.getElementById('chatBox');
+const closeChat = document.getElementById('closeChat');
+const userMessage = document.getElementById('userMessage');
+const sendMessage = document.getElementById('sendMessage');
+const chatMessages = document.getElementById('chatMessages');
+
+// Toggle chat box
+chatButton.addEventListener('click', () => {
+  chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+});
+
+closeChat.addEventListener('click', () => {
+  chatBox.style.display = 'none';
+});
+
+// Send message function
+function sendMessageHandler() {
+  const message = userMessage.value.trim();
+  if (message) {
+    // Add user message
+    const userMsgElement = document.createElement('div');
+    userMsgElement.className = 'chat-message user-message';
+    userMsgElement.innerHTML = `<p>${message}</p>`;
+    chatMessages.appendChild(userMsgElement);
     
-    // Update gtag consent
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'update', {
-      'ad_storage': value === 'accepted' ? 'granted' : 'denied',
-      'analytics_storage': value === 'accepted' ? 'granted' : 'denied'
+    // Clear input
+    userMessage.value = '';
+    
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Simulate bot reply after 1 second
+    setTimeout(() => {
+      const botMsgElement = document.createElement('div');
+      botMsgElement.className = 'chat-message bot-message';
+      botMsgElement.innerHTML = '<p>Thanks for your message! We\'ll get back to you soon.</p>';
+      chatMessages.appendChild(botMsgElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 1000);
+  }
+}
+
+// Send message on button click or Enter key
+sendMessage.addEventListener('click', sendMessageHandler);
+userMessage.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessageHandler();
+});
+
+// ===== Form Submission =====
+const chatForm = document.getElementById('chatForm');
+const formMessage = document.getElementById('formMessage');
+
+// Submit chat messages to FormSubmit
+chatMessages.addEventListener('DOMNodeInserted', (e) => {
+  if (e.target.className.includes('user-message')) {
+    formMessage.value = e.target.textContent.trim();
+    chatForm.submit();
+  }
+});
+
+// ===== Smooth Scrolling =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
-  };
-
-  // Event listeners
-  acceptBtn.addEventListener('click', () => setConsent('accepted'));
-  rejectBtn.addEventListener('click', () => setConsent('rejected'));
-
-  // ===== IMAGE OVERFLOW PROTECTION =====
-  document.querySelectorAll('img').forEach(img => {
-    img.style.maxWidth = '100%';
-    img.style.height = 'auto';
   });
 });
-// ===== CHAT WIDGET FUNCTIONALITY =====
-document.addEventListener('DOMContentLoaded', () => {
-  // Chat elements
-  const chatButton = document.getElementById('chatButton');
-  const chatBox = document.getElementById('chatBox');
-  const closeChat = document.getElementById('closeChat');
-  const sendMessageBtn = document.getElementById('sendMessage');
-  const userMessageInput = document.getElementById('userMessage');
-  const chatMessages = document.getElementById('chatMessages');
-  const chatForm = document.getElementById('chatForm');
-  const formMessageInput = document.getElementById('formMessage');
 
-  // Toggle chat visibility
-  const toggleChat = () => {
-    chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
-    chatButton.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
-    if (chatBox.style.display === 'flex') {
-      userMessageInput.focus();
+// ===== Active Nav Link Highlighting =====
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-container a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    if (pageYOffset >= sectionTop - 100) {
+      current = section.getAttribute('id');
     }
-  };
-
-  // Add message to chat
-  const addMessage = (content, sender) => {
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('chat-message');
-    messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-    messageDiv.innerHTML = `<p>${content}</p>`;
-    chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  };
-
-  // Event listeners
-  if (chatButton && chatBox) {
-    chatButton.addEventListener('click', toggleChat);
-    closeChat.addEventListener('click', toggleChat);
-
-    // Send message
-    const sendMessage = () => {
-      const message = userMessageInput.value.trim();
-      if (message) {
-        addMessage(message, 'user');
-        formMessageInput.value = message;
-        chatForm.submit();
-        userMessageInput.value = '';
-        
-        // Simulate bot reply (replace with actual API call)
-        setTimeout(() => {
-          addMessage("Thank you for your message! We'll get back to you soon.", 'bot');
-        }, 1000);
-      }
-    };
-
-    sendMessageBtn.addEventListener('click', sendMessage);
-    userMessageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
-    });
-  }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
 });
+
+// ===== Course Card Animation =====
+const courseCards = document.querySelectorAll('.course-card');
+
+courseCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-10px)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+  });
+});
+
+// ===== Mobile Menu Toggle (if needed) =====
+// Add this if you implement a mobile menu later
