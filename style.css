@@ -299,6 +299,17 @@ footer {
   padding-top: 1rem;
   font-size: 0.875rem;
 }
+/* VERIFICATION ICON CENTERING */
+.verification-card {
+  text-align: center;
+}
+
+.verification-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin: 0 auto 1rem auto;
+  color: #28a745; /* Green */
+}
 
 /* COOKIE CONSENT */
 .cookie-consent {
