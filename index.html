@@ -285,5 +285,39 @@
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
+<!-- Chat Widget -->
+<div class="chat-container">
+  <div class="chat-button" id="chatButton">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <h3>Chat with Us</h3>
+      <button class="close-chat" id="closeChat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message bot-message">
+        <p>Hello! How can we help you today?</p>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userMessage" placeholder="Type your message..." aria-label="Type your message">
+      <button id="sendMessage">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden FormSubmit Form -->
+<form id="chatForm" action="https://formsubmit.co/edu.info.cfea@gmail.com" method="POST" style="display: none;">
+  <input type="hidden" name="_subject" value="New Chat Message from CFEA Website">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="text" name="message" id="formMessage">
+  <input type="hidden" name="_next" value="https://cfea22.github.io/thank-you.html">
+</form>
 </body>
 </html>
