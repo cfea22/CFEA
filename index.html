@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  (function() {
-    // Consent state object (by default, no consent is granted)
-    const consentState = {
-      adConsent: false,  // Consent for ads (Google Ads)
-      analyticsConsent: false,  // Consent for Google Analytics
-    };
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="d6gqA6mxfu57padP6G2dIvaQ-k9UgILj8yzD0YpKkLE" />
+  <title>The Career Foundation Educational Academy</title>
 
-    // Function to update consent state based on user interaction
-    function updateConsent(consent) {
-      consentState.adConsent = consent.adConsent;
-      consentState.analyticsConsent = consent.analyticsConsent;
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="./images/logo.png" type="image/png" />
 
-      // Update Google consent mode with the current consent state
-      gtag('consent', 'update', {
-        'ad_storage': consentState.adConsent ? 'granted' : 'denied',
-        'analytics_storage': consentState.analyticsConsent ? 'granted' : 'denied'
-      });
-    }
-
-    // Google Analytics Setup (Initial config without data collection)
+  <!-- Google Tag (Consent Mode v2 Compatible) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6V2DHE4VEW"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
+
+    // Consent defaults (v2 categories)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted'
+    });
+
     gtag('js', new Date());
-    
-    // Replace this with your actual Google Analytics Measurement ID
     gtag('config', 'G-6V2DHE4VEW', { 'anonymize_ip': true });
-
-    // Custom logic to listen to the user's consent actions
-    // Example of how consent state changes when the user clicks "Accept" or "Reject"
-    document.getElementById('cookie-consent-accept').addEventListener('click', function() {
-      updateConsent({ adConsent: true, analyticsConsent: true });  // Grant consent for ads & analytics
-      document.getElementById('cookie-consent-popup').style.display = 'none';  // Close the consent pop-up
-    });
-
-    document.getElementById('cookie-consent-reject').addEventListener('click', function() {
-      updateConsent({ adConsent: false, analyticsConsent: false });  // Reject both ads & analytics cookies
-      document.getElementById('cookie-consent-popup').style.display = 'none';  // Close the consent pop-up
-    });
-  })();
-</script>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6V2DHE4VEW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6V2DHE4VEW');
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Career Foundation Educational Academy</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="./images/logo.png" type="image/png">
+  </script>
 </head>
-<meta name="google-site-verification" content="d6gqA6mxfu57padP6G2dIvaQ-k9UgILj8yzD0YpKkLE" />
-  <body>
+<body>
+
 <!-- Cookie Consent Popup -->
-<div id="cookie-consent-popup" style="position: fixed; bottom: 10px; left: 0; width: 100%; background-color: #333; color: #fff; padding: 15px; text-align: center;">
-  <p>We use cookies to improve your experience on our website. By accepting, you agree to our use of cookies for analytics and ads. <a href="/privacy-policy" style="color: #fff; text-decoration: underline;">Learn more</a></p>
+<div id="cookie-consent-popup" style="position: fixed; bottom: 10px; left: 0; width: 100%; background-color: #333; color: #fff; padding: 15px; text-align: center; z-index: 9999;">
+  <p>We use cookies to improve your experience. By accepting, you agree to our use of cookies for analytics and ads. 
+    <a href="/privacy-policy" style="color: #fff; text-decoration: underline;">Learn more</a>
+  </p>
   <button id="cookie-consent-accept" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">Accept</button>
   <button id="cookie-consent-reject" style="background-color: #f44336; color: white; padding: 10px 20px; border: none; cursor: pointer;">Reject</button>
 </div>
 
+<!-- Header -->
 <header>
   <div class="header-content">
     <div class="logo-container">
@@ -83,6 +56,7 @@
   </div>
 </header>
 
+<!-- Navigation -->
 <nav>
   <div class="nav-container">
     <a href="#about">About</a>
@@ -94,25 +68,17 @@
   </div>
 </nav>
 
+<!-- About Section -->
 <section id="about">
   <h2>About Us</h2>
   <div class="about-content">
     <div class="about-text">
-      <p>The Career Foundation Educational Academy (CFEA) is committed to empowering students through practical education and skill development. We collaborate with institutions like the Khwai Ihul Foundation to expand literacy and digital education across Manipur.</p>
-      <p>Our mission is to provide quality education that bridges the gap between academic learning and practical skills needed in today's competitive world.</p>
+      <p>The Career Foundation Educational Academy (CFEA) is committed to empowering students through practical education and skill development.</p>
+      <p>Our mission is to provide quality education that bridges academic learning with practical skills.</p>
       <div class="stats">
-        <div class="stat-item">
-          <span class="stat-number">1500+</span>
-          <span class="stat-label">Students Trained</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">10+</span>
-          <span class="stat-label">Courses Offered</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Verified Certificates</span>
-        </div>
+        <div class="stat-item"><span class="stat-number">1500+</span><span class="stat-label">Students Trained</span></div>
+        <div class="stat-item"><span class="stat-number">10+</span><span class="stat-label">Courses Offered</span></div>
+        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Verified Certificates</span></div>
       </div>
     </div>
     <div class="about-image">
@@ -121,6 +87,7 @@
   </div>
 </section>
 
+<!-- Courses Section -->
 <section id="courses">
   <h2>Courses Offered</h2>
   <div class="course-gallery">
@@ -128,7 +95,7 @@
       <img src="./images/computer-course.jpg" alt="Basic Computer Course">
       <div class="course-info">
         <h3>Basic Computer Course</h3>
-        <p>Learn essential computer skills including MS Office, internet usage, and basic troubleshooting.</p>
+        <p>Learn MS Office, internet usage, and basic troubleshooting.</p>
         <div class="course-details">
           <span><i class="far fa-clock"></i> 3 Months</span>
           <span><i class="fas fa-rupee-sign"></i> 2,500</span>
@@ -140,7 +107,7 @@
       <img src="./images/english-course.jpeg" alt="Spoken English">
       <div class="course-info">
         <h3>Spoken English</h3>
-        <p>Improve your communication skills with our comprehensive spoken English program.</p>
+        <p>Improve your communication skills through interactive sessions.</p>
         <div class="course-details">
           <span><i class="far fa-clock"></i> 2 Months</span>
           <span><i class="fas fa-rupee-sign"></i> 2,000</span>
@@ -149,10 +116,10 @@
       </div>
     </div>
     <div class="course-card">
-      <img src="./images/digital-literacy.jpg" alt="Digital Literacy Program">
+      <img src="./images/digital-literacy.jpg" alt="Digital Literacy">
       <div class="course-info">
         <h3>Digital Literacy Program</h3>
-        <p>Master digital tools and platforms essential for modern education and employment.</p>
+        <p>Master essential digital tools and platforms.</p>
         <div class="course-details">
           <span><i class="far fa-clock"></i> 1 Month</span>
           <span><i class="fas fa-rupee-sign"></i> 1,500</span>
@@ -166,158 +133,112 @@
   </div>
 </section>
 
+<!-- Features -->
 <section id="features">
   <h2>Key Features</h2>
   <div class="features">
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-certificate"></i>
-      </div>
+      <i class="fas fa-certificate feature-icon"></i>
       <h3>Certified Programs</h3>
-      <p>Recognized training and verified certifications to boost student credentials.</p>
+      <p>Recognized certifications to boost your career.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-hands-helping"></i>
-      </div>
+      <i class="fas fa-hands-helping feature-icon"></i>
       <h3>Community Outreach</h3>
-      <p>Collaborations with local foundations to promote education for all.</p>
+      <p>We collaborate with foundations to educate every corner.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-rupee-sign"></i>
-      </div>
+      <i class="fas fa-rupee-sign feature-icon"></i>
       <h3>Affordable Fees</h3>
-      <p>High-quality training with minimal fees to ensure accessibility for all.</p>
+      <p>Accessible education without compromising quality.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-qrcode"></i>
-      </div>
+      <i class="fas fa-qrcode feature-icon"></i>
       <h3>Online Verification</h3>
-      <p>QR-based and ID-based verification available 24/7 via our portal.</p>
+      <p>QR & ID-based certificate verification system.</p>
     </div>
   </div>
 </section>
 
+<!-- Certificate Verification -->
 <section id="verify">
   <h2>Certificate Verification</h2>
   <div class="verification-container">
     <div class="verification-card">
-      <div class="verification-icon">
-        <i class="fas fa-certificate"></i>
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring-delay"></div>
-      </div>
+      <i class="fas fa-certificate verification-icon"></i>
       <h3>Verify Your Certificate</h3>
-      <p>Check the authenticity of your CFEA certificates using our online verification system</p>
+      <p>Check the authenticity of your certificate online anytime.</p>
       <a href="https://cfea22.github.io/Verify-Your-Certificate/" class="verify-btn" target="_blank">
-        Click Here to Verify
-        <i class="fas fa-arrow-right"></i>
+        Click Here to Verify <i class="fas fa-arrow-right"></i>
       </a>
     </div>
   </div>
 </section>
 
+<!-- Announcements -->
 <section id="announcements">
   <h2>Announcements</h2>
   <div class="announcements-container">
     <div class="announcement-card">
-      <div class="announcement-badge">
-        <i class="fas fa-graduation-cap"></i>
-      </div>
+      <i class="fas fa-graduation-cap announcement-badge"></i>
       <h3>Admissions Open</h3>
-      <p>Admissions open for Basic Computer Course - June Batch. Limited seats available!</p>
+      <p>Admissions open for Basic Computer Course - June Batch.</p>
       <p class="date">Posted: May 15, 2025</p>
     </div>
     <div class="announcement-card">
-      <div class="announcement-badge">
-        <i class="fas fa-certificate"></i>
-      </div>
+      <i class="fas fa-certificate announcement-badge"></i>
       <h3>Certificate Verification</h3>
-      <p>Online certificate verification portal now live. Verify your certificates anytime, anywhere.</p>
+      <p>Verify certificates online 24/7 through our portal.</p>
       <p class="date">Posted: April 28, 2025</p>
     </div>
     <div class="announcement-card">
-      <div class="announcement-badge">
-        <i class="fas fa-calendar-alt"></i>
-      </div>
+      <i class="fas fa-calendar-alt announcement-badge"></i>
       <h3>Workshop on Digital Skills</h3>
-      <p>Free workshop on essential digital skills for students on June 10, 2025.</p>
+      <p>Free workshop on June 10, 2025 for all students.</p>
       <p class="date">Posted: May 20, 2025</p>
     </div>
   </div>
 </section>
 
+<!-- Contact -->
 <section id="contact">
   <h2>Contact Us</h2>
   <div class="contact-container">
     <div class="contact-info">
-      <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <h3>Email</h3>
-        <p><a href="mailto:edu.info.cfea@gmail.com">edu.info.cfea@gmail.com</a></p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-phone"></i>
-        </div>
-        <h3>Phone</h3>
-        <p>+91-8259917939</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <h3>Address</h3>
-        <p>Napet Palli, Imphal East, Manipur – 795010</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-clock"></i>
-        </div>
-        <h3>Working Hours</h3>
-        <p>Monday - Saturday: 9:00 AM - 2:00 PM</p>
-      </div>
+      <div class="contact-card"><i class="fas fa-envelope contact-icon"></i><h3>Email</h3><p><a href="mailto:edu.info.cfea@gmail.com">edu.info.cfea@gmail.com</a></p></div>
+      <div class="contact-card"><i class="fas fa-phone contact-icon"></i><h3>Phone</h3><p>+91-8259917939</p></div>
+      <div class="contact-card"><i class="fas fa-map-marker-alt contact-icon"></i><h3>Address</h3><p>Napet Palli, Imphal East, Manipur – 795010</p></div>
+      <div class="contact-card"><i class="fas fa-clock contact-icon"></i><h3>Working Hours</h3><p>Mon - Sat: 9:00 AM - 2:00 PM</p></div>
     </div>
     <div class="contact-form">
       <h3>Send us a Message</h3>
       <form>
-        <div class="form-group">
-          <input type="text" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="Your Email" required>
-        </div>
-        <div class="form-group">
-          <input type="tel" placeholder="Your Phone">
-        </div>
-        <div class="form-group">
-          <textarea placeholder="Your Message" rows="5" required></textarea>
-        </div>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="tel" placeholder="Your Phone">
+        <textarea placeholder="Your Message" rows="5" required></textarea>
         <button type="submit" class="btn">Send Message</button>
       </form>
     </div>
   </div>
   <div class="map-container">
-    <iframe src="https://maps.app.goo.gl/rGshbTc6VREpottq6" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://maps.app.goo.gl/rGshbTc6VREpottq6" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
   <div class="footer-content">
     <div class="footer-section">
-      <img src="./images/logo-white.png" alt="CFEA Logo" class="footer-logo">
-      <p>The Career Foundation Educational Academy is dedicated to providing quality education and skill development programs in Manipur.</p>
+      <img src="./images/logo-white.png" alt="CFEA Logo" class="footer-logo" />
+      <p>The Career Foundation Educational Academy provides quality education and skills in Manipur.</p>
     </div>
     <div class="footer-section">
       <h3>Quick Links</h3>
       <ul>
         <li><a href="#about">About Us</a></li>
         <li><a href="#courses">Courses</a></li>
-        <li><a href="#verify">Certificate Verification</a></li>
+        <li><a href="#verify">Verify</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -344,21 +265,16 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
 <!-- Chat Widget -->
 <div class="chat-container">
-  <div class="chat-button" id="chatButton">
-    <i class="fas fa-comments"></i>
-  </div>
+  <div class="chat-button" id="chatButton"><i class="fas fa-comments"></i></div>
   <div class="chat-box" id="chatBox">
     <div class="chat-header">
       <h3>Chat with Us</h3>
       <button class="close-chat" id="closeChat"><i class="fas fa-times"></i></button>
     </div>
     <div class="chat-messages" id="chatMessages">
-      <div class="chat-message bot-message">
-        <p>Hello! How can we help you today?</p>
-      </div>
+      <div class="chat-message bot-message"><p>Hello! How can we help you today?</p></div>
     </div>
     <div class="chat-input">
       <input type="text" id="userMessage" placeholder="Type your message...">
@@ -377,5 +293,33 @@
   <input type="email" name="email" id="formEmail" placeholder="Optional: Your Email">
   <input type="hidden" name="_next" value="https://cfea22.github.io/CFEA/thank-you.html">
 </form>
+
+<!-- Consent Management Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function updateConsent(consent) {
+      gtag('consent', 'update', {
+        'ad_storage': consent.adConsent ? 'granted' : 'denied',
+        'analytics_storage': consent.analyticsConsent ? 'granted' : 'denied',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted'
+      });
+    }
+
+    document.getElementById('cookie-consent-accept').addEventListener('click', function () {
+      updateConsent({ adConsent: true, analyticsConsent: true });
+      document.getElementById('cookie-consent-popup').style.display = 'none';
+    });
+
+    document.getElementById('cookie-consent-reject').addEventListener('click', function () {
+      updateConsent({ adConsent: false, analyticsConsent: false });
+      document.getElementById('cookie-consent-popup').style.display = 'none';
+    });
+  });
+</script>
+
+<!-- Your Site Scripts -->
+<script src="script.js"></script>
 </body>
 </html>
