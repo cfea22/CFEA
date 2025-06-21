@@ -1,17 +1,9 @@
 /* ===== Global Variables & Reset ===== */
 :root {
+  /* Layout Dimensions */
   --header-height: 80px;
   --nav-height: 60px;
-}
-
-header {
-  height: var(--header-height);
-}
-
-body {
-  padding-top: calc(var(--header-height) + var(--nav-height));
-}
-:root {
+  
   /* Colors */
   --primary-color: #4a6bff;
   --primary-dark: #3a56d4;
@@ -37,6 +29,11 @@ body {
   --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --border-radius: 10px;
   --transition: all 0.3s ease;
+  
+  /* Z-index */
+  --z-header: 1000;
+  --z-nav: 999;
+  --z-chat: 998;
 }
 
 * {
@@ -56,6 +53,7 @@ body {
   color: #333;
   background-color: #fff;
   overflow-x: hidden;
+  padding-top: calc(var(--header-height) + var(--nav-height));
 }
 
 /* ===== Utility Classes ===== */
@@ -108,7 +106,8 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  height: var(--header-height);
+  z-index: var(--z-header);
   box-shadow: var(--box-shadow);
 }
 
@@ -116,6 +115,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
 
 .logo-container {
@@ -144,39 +144,14 @@ header {
   margin-bottom: 0.2rem;
 }
 
-/* Fix for content hidden behind fixed header */
-body {
-  padding-top: 140px; /* Adjust based on your header height */
-}
-
-/* Ensure header doesn't cover content */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-/* Navigation styling fix */
+/* ===== Navigation ===== */
 nav {
   position: sticky;
-  top: 80px; /* Header height */
-  z-index: 999;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* Main content spacing */
-main {
-  position: relative;
-  z-index: 1;
-}
-nav {
+  top: var(--header-height);
+  z-index: var(--z-nav);
   background: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 82px;
-  z-index: 999;
+  width: 100%;
 }
 
 .nav-container {
@@ -194,6 +169,7 @@ nav {
   border-radius: 4px;
   font-size: var(--font-sm);
   color: var(--dark-color);
+  white-space: nowrap;
 }
 
 .nav-container a:hover,
@@ -201,18 +177,11 @@ nav {
   color: var(--primary-color);
   background: rgba(74, 107, 255, 0.1);
 }
-@media (max-width: 768px) {
-  :root {
-    --header-height: 120px; /* Taller on mobile */
-  }
-  
-  nav {
-    top: var(--header-height);
-  }
-}
+
 /* ===== Main Content ===== */
 main {
-  margin-top: 140px; /* Adjust based on header height */
+  position: relative;
+  z-index: 1;
   padding-bottom: 2rem;
 }
 
@@ -786,7 +755,7 @@ footer {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  z-index: 999;
+  z-index: var(--z-chat);
 }
 
 .chat-button {
@@ -967,14 +936,7 @@ footer {
     --font-md: 1.125rem;
     --font-lg: 1.25rem;
     --font-xl: 1.5rem;
-  }
-
-  main {
-    margin-top: 120px;
-  }
-
-  nav {
-    top: 70px;
+    --header-height: 120px;
   }
 
   .nav-container {
