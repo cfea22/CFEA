@@ -419,3 +419,45 @@ footer {
     flex-direction: column;
   }
 }
+.course-highlight {
+  padding: 50px 20px;
+  background-color: #fdfdfd;
+}
+.course-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+.course-text {
+  flex: 1;
+  min-width: 300px;
+}
+.course-text ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+.course-text ul li {
+  margin-bottom: 10px;
+}
+.course-image {
+  flex: 1;
+  min-width: 300px;
+}
+.course-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.download-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.download-btn:hover {
+  background-color: #0056b3;
+}
