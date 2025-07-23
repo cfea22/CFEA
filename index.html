@@ -423,5 +423,27 @@
   <input type="text" name="message" id="formMessage">
   <input type="hidden" name="_next" value="https://cfea22.github.io/thank-you.html">
 </form>
+<script>
+  let trainingIndex = 0;
+  const trainingSlides = document.querySelectorAll(".training-slider .slide");
+
+  function showTrainingSlide(index) {
+    trainingSlides.forEach(slide => slide.classList.remove("active"));
+    trainingSlides[index].classList.add("active");
+  }
+
+  function changeTrainingSlide(n) {
+    trainingIndex = (trainingIndex + n + trainingSlides.length) % trainingSlides.length;
+    showTrainingSlide(trainingIndex);
+  }
+
+  // Auto-play every 5 seconds
+  setInterval(() => {
+    changeTrainingSlide(1);
+  }, 5000);
+
+  // Initialize first slide
+  showTrainingSlide(trainingIndex);
+</script>
 </body>
 </html>
