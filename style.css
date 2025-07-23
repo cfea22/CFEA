@@ -461,3 +461,46 @@ footer {
 .download-btn:hover {
   background-color: #0056b3;
 }
+.training-slider {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 20px auto;
+}
+
+.training-slider .slide {
+  display: none;
+}
+
+.training-slider .slide.active {
+  display: block;
+}
+
+.training-slider .slide img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.training-slider .prev,
+.training-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  font-size: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.training-slider .prev {
+  left: 10px;
+}
+
+.training-slider .next {
+  right: 10px;
+}
