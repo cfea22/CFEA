@@ -1,0 +1,145 @@
+/* --- Base Styles --- */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* --- Top Bar --- */
+.top-bar {
+    background-color: #008040;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5%;
+    font-size: 14px;
+}
+
+.contact-info span {
+    margin-right: 20px;
+}
+
+.btn-parents-app {
+    background-color: #FA8072;
+    color: white;
+    padding: 6px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* --- Main Header --- */
+.main-header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 2px solid #008040;
+}
+
+.school-branding {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-text h1 {
+    margin: 0;
+    color: #000080; /* Navy Blue */
+    font-size: 28px;
+}
+
+.brand-text .motto {
+    margin: 0;
+    color: #cc0000; /* Bright Red */
+    font-weight: bold;
+}
+
+.affiliations {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- Navigation --- */
+.main-navigation {
+    background-color: #008040;
+    padding: 12px 5%;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nav-links li a:hover {
+    color: #FA8072;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background-color: #ddd; /* Placeholder for a background image */
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+/* --- Content Section (Notices & Links) --- */
+.content-section {
+    display: flex;
+    gap: 30px;
+    padding: 40px 5%;
+}
+
+.notices, .quick-links {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    flex: 1;
+}
+
+h3 {
+    color: #008040;
+    border-bottom: 2px solid #FA8072;
+    padding-bottom: 10px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
